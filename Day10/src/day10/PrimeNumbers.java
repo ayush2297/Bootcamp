@@ -1,0 +1,94 @@
+package day10;
+
+import java.util.Arrays;
+
+public class PrimeNumbers {
+
+	int op[][] = new int[10][30];
+	public void isPrime() {
+		for(int row=0; row<10;row++) {
+			int low = row*100;
+			int high = 100*(row+1);
+			int m =0;		
+			
+			for(int i = low; i <= high; i++) {
+				if(i==0 || i==1) {
+					continue;
+				}
+				int k=i;
+				if(k==2) {
+					op[row][m++]= k;
+					continue;
+				}
+				boolean isPrime =true ;
+				if(k%2==0) {
+					continue;
+				}
+				for(int j=3; j <=k/2; j=j+2)
+				{
+					if(k%j == 0)
+					{
+						isPrime = false;
+						break;
+					}
+				}
+				if(isPrime == true) {
+					op[row][m++]=i;
+				}
+			}
+		}
+		for(int i = 0;i<10;i++) {
+			for(int j=0;j<30;j++) {
+				if(op[i][j]!=0) {
+				System.out.print(op[i][j]+ " ");
+				}
+			}
+			System.out.println();
+		}
+			
+	}
+	
+	public void ana() {
+		
+		for(int i =0; i<30;i++) {
+			int a[] = new int [2];
+			int b[] = new int [2];
+			int r = op[0][i];
+			int l=0;
+			while(r>0 && l<=1) {
+				int k = r%10;
+				a[l++]=k;
+				k=k/10;
+			}
+			Arrays.sort(a);
+			for(int q=0;q<2;q++) {
+				System.out.print(a[q]);
+			}
+			
+			for(int j=i+1;j<30;j++) {
+				int f=0;
+				int k = op[0][j];
+				while(k>=0 && f<=1) {
+					int y = k%10;
+					b[f++]=y;
+					k=k/10;
+				}
+				Arrays.sort(b);
+				for(int q=0;q<2;q++) {
+					System.out.print(b[q]);
+				}
+				if(Arrays.equals(a, b));{
+					System.out.println(op[i]+" and "+op[j]+" are anagrams\n");
+					break;
+				}
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		PrimeNumbers pn = new PrimeNumbers();
+		pn.isPrime();
+		pn.ana();
+	}
+		
+}

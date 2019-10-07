@@ -1,0 +1,38 @@
+/**
+ * 
+ */
+package com.bridgelabz.lib;
+import java.util.*;
+
+/**
+ * @author ayush
+ *
+ */
+public class StdRandom {
+
+	public void setSeed(long seed) {
+		Random rno = new Random();
+		rno.setSeed(seed);
+		System.out.println("value of seed: " +seed);
+	}
+	
+	public int uniform(int n) {
+		int t;
+		Random rno = new Random();
+		t = rno.nextInt(n);
+		return t;
+	}
+	
+	public double uniform(double lo, double high) {
+		double t;
+		Random rno = new Random();
+		t = rno.nextDouble();
+		System.out.println(" "+t);
+		return t;
+	}
+	
+	public static void main(String [] args) {
+		StdRandom sr = new StdRandom();
+		
+	}
+}

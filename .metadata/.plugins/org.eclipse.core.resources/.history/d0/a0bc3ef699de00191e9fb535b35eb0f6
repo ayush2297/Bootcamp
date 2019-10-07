@@ -1,0 +1,19 @@
+package com.bridgelabz.lib;
+import java.util.*;
+
+public class BLStdIn {
+
+	private static Scanner scanner = new Scanner(System.in);
+	/**
+     * Returns true if standard input is empty (except possibly for whitespace).
+     * Use this method to know whether the next call to {@link #readString()}, 
+     * {@link #readDouble()}, etc will succeed.
+     *
+     * @return {@code true} if standard input is empty (except possibly
+     *         for whitespace); {@code false} otherwise
+     */
+    public static boolean isEmpty() {
+        return !scanner.hasNext();
+    }
+	
+}

@@ -1,0 +1,36 @@
+package day11;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class InfiniteSeries {
+
+	Scanner sc = new Scanner(System.in);
+	public void generateSeries() {
+	
+		int seriesOf = 1, row =0;
+		System.out.println("enter harmonic range 'n': ");
+		int n = sc.nextInt();
+		double [][]arr = new double [10][n];
+		while (row<10) {
+			double sum = 1*row;
+			for(double i=1;i<=n;i++) {
+				sum = sum + (1/(i));
+				arr[row][(int) i-1] = sum;
+			}
+			row++;
+		}
+		for(int i = 0; i<n;i++) {
+			for(int j=0;j<n;j++) {
+				System.out.print(arr[i][j]+"\t");	
+			}
+			System.out.println();
+		}
+	}
+	
+	public static void main(String [] args) {
+		InfiniteSeries inf = new InfiniteSeries();
+		inf.generateSeries();
+	}
+	
+}

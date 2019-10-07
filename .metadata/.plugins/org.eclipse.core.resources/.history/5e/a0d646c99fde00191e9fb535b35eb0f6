@@ -1,0 +1,97 @@
+package com.bridgelabz.lib;
+import java.util.*;
+
+public class BLStdIn {
+
+	private static Scanner scanner = new Scanner(System.in);
+	/**
+     * Returns true if standard input is empty (except possibly for whitespace).
+     * Use this method to know whether the next call to {@link #readString()}, 
+     * {@link #readDouble()}, etc will succeed.
+     *
+     * @return {@code true} if standard input is empty (except possibly
+     *         for whitespace); {@code false} otherwise
+     */
+    public static boolean isEmpty() {
+        return !scanner.hasNext();
+    }
+	
+    
+    /**
+     * Reads the next token from standard input, parses it as an integer, and returns the integer.
+     *
+     * @return the next integer on standard input
+     * @throws NoSuchElementException if standard input is empty
+     * @throws InputMismatchException if the next token cannot be parsed as an {@code int}
+     */
+    public static int readInt() {
+        try {
+            return scanner.nextInt();
+        }
+        catch (InputMismatchException e) {
+            String token = scanner.next();
+            throw new InputMismatchException("attempts to read an 'int' value from standard input, "
+                                           + "but the next token is \"" + token + "\"");
+        }
+        catch (NoSuchElementException e) {
+            throw new NoSuchElementException("attemps to read an 'int' value from standard input, "
+                                           + "but no more tokens are available");
+        }
+
+    }
+    
+    /**
+     * Reads the next token from std input, parses it as an double and return the double.
+     * @return the next double on std input
+     * @throws NoSuchElementException if std input is empty
+     * @throws InputMismatchException if the next token cant be parsed as an {@code double}
+     */
+    public static double readDouble() {
+    	try {
+    		return scanner.nextDouble();
+    	}
+    	catch(InputMismatchException e) {
+    		String token = scanner.next();
+    		throw new InputMismatchException("attempts to read a 'double' value from std input, "
+    										+"but the next token is \"" + token+"\"");
+    	}
+    	catch(NoSuchElementException e) {
+    		throw new NoSuchElementException("no tokens available");
+    	}
+    }
+    
+    /**
+     * Reads the next token from std input, parses it as an boolean and return the boolean.
+     * @return the next boolean on std input
+     * @throws NoSuchElementException if std input is empty
+     * @throws InputMismatchException if the next token cant be parsed as an {@code double}
+     */
+    public static boolean readBoolean() {
+    	try {
+    		return scanner.nextBoolean();
+    	}
+    	catch(InputMismatchException e) {
+    		String token = scanner.next();
+    		throw new InputMismatchException("attempts to read a 'boolean' value from std input, "
+    										+"but the next token is \"" + token+"\"");
+    	}
+    	catch(NoSuchElementException e) {
+    		throw new NoSuchElementException("no tokens available");
+    	}
+    }
+    
+    /**
+     * Reads the next token from std input, parses it as an String and return the String.
+     * @return the next boolean on std input
+     * @throws NoSuchElementException if std input is empty
+     * @throws InputMismatchException if the next token cant be parsed as an {@code double}
+     */
+    public static String readString() {
+    	try {
+    		return scanner.next();
+    	}
+    	catch(NoSuchElementException e) {
+    		throw new NoSuchElementException("no tokens available");
+    	}
+    }
+}

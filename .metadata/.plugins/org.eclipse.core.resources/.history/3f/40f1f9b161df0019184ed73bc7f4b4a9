@@ -1,0 +1,35 @@
+package day8;
+import java.util.*;
+import java.io.*;
+
+public class SortingNSearch {
+
+	public static void main(String [] args) throws FileNotFoundException {
+
+		File file = new File("/home/admin1/day8.txt");
+		Scanner sc = new Scanner(file);
+		int count = 0;
+		String b,c = " ";
+		while(sc.hasNextLine()) {
+			b =sc.nextLine();
+			c = c+b;
+			System.out.print(c+ " ");
+			count++;
+		}
+		System.out.print(count);
+//		
+//		sc.useDelimiter("\\Z");
+//		String b = sc.next();
+		System.out.println("with spl.chars\n"+c);
+		c = c.replaceAll("[^a-zA-Z0-9\\s]", "");
+		System.out.println("\nw/o spl.chars\n"+c);
+		String[] a = c.split(" "); 
+		Arrays.sort(a);
+		for(String str : a) {
+			System.out.print(str+" ");
+		}
+//		List<String> words = new ArrayList<>();
+//		Collections.addAll(words, a);
+//		System.out.println(words);
+	}
+}
